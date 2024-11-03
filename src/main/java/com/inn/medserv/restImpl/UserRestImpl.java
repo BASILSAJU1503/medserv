@@ -20,11 +20,11 @@ public class UserRestImpl implements UserRest {
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
 
-        try{
+        try {
             return userService.signup(requestMap);
-        }catch (Exception ex){
+        } catch (Exception ex) {
 
         }
-       return medservUtils.getResponseEntity("",HttpStatus.INTERNAL_SERVER_ERROR);
+        return medservUtils.getResponseEntity("", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

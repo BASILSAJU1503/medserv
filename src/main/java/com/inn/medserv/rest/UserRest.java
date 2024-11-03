@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
-@RequestMapping(path ="/docUser")
+@RequestMapping(path ="/user")
 public interface UserRest {
 
     @PostMapping(path ="/signUp")
