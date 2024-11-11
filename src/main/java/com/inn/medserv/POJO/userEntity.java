@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @NamedQuery(name = "User.findByUserId", query = "SELECT u FROM userEntity u WHERE u.userId = :userid")
+@NamedQuery(name = "User.findByMobileNumber", query = "SELECT u FROM userEntity u WHERE u.mobileNumber = :mobileNumber")
 
 @Data
 @Entity

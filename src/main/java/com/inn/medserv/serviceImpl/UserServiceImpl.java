@@ -4,6 +4,7 @@ import com.inn.medserv.POJO.userEntity;
 import com.inn.medserv.dao.UserDao;
 import com.inn.medserv.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import objectFiles.userVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,24 @@ public class UserServiceImpl implements UserService {
         validateRegisterInputs(requestMap);
         userEntity user = new userEntity();
         user = buildUserDetail(requestMap);
+
         userDao.save(user);
+
+        return null;
+    }
+
+    @Override
+    public Integer signIn(userVo requestMap) {
+        userEntity user = new userEntity();
+        if(!ObjectUtils.isEmpty(requestMap.getPhoneNumber())){
+            user= userDao.findByMobileNumber(requestMap.getPhoneNumber());
+            if(!ObjectUtils.isEmpty(user)){
+                return user.getUserId();
+            }
+            else{
+                throw new IllegalArgumentException("No user with this number");
+            }
+        }
 
         return null;
     }

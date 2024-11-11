@@ -9,4 +9,7 @@ public interface UserDao  extends JpaRepository<userEntity,Integer> {
 
     public userEntity findByUserId(@Param("userId") Integer userId);
 
+    public userEntity findByMobileNumber(@Param("mobileNumber") String mobileNumber);
+
+
 }
